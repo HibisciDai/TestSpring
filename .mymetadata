@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="testspring-hibiscidai"
+  id="myeclipse.1525781796716"
+  context-root="/testspring"
+  j2ee-spec="6.0"
+  archive="testspring-hibiscidai.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd ">
+
+	<!-- 配置UserDAOIMpl的Bean标签 -->
+	<bean id="userDao" class="org.fancylab.hibiscidai.dao.UserDao">
+	</bean>
+
+	<!-- 配置该类的信息 UserServiceImpl -->
+	<bean id="userService" class="org.fancylab.hibiscidai.service.impl.UserServiceImpl">
+		<property name="userDao">
+			<ref local="userDao" />
+		</property>
+	</bean>
+
+	<!-- 配置该类的信息 User -->
+	<bean id="user" class="org.fancylab.hibiscidai.entity.User">
+		<!-- 为成员变量赋值 -->
+		<property name="id">
+			<value>20</value>
+		</property>
+
+		<property name="username">
+			<value>小黑</value>
+		</property>
+
+		<property name="password">
+			<value>123456</value>
+		</property>
+
+		<!-- 数组成员变量赋值 -->
+		<property name="tels">
+			<list>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+			</list>
+		</property>
+
+		<!-- List成员变量赋值 -->
+		<property name="l">
+			<list>
+				<value>xiaohei</value>
+				<value>xiaohua</value>
+				<value>xiaobai</value>
+				<value>xiaowb</value>
+			</list>
+		</property>
+
+		<!-- Set成员变量赋值 -->
+		<property name="s">
+			<set>
+				<value>xiao1</value>
+				<value>xiao2</value>
+				<value>xiao3</value>
+			</set>
+		</property>
+
+		<!-- Map成员变量赋值 -->
+		<property name="m">
+			<map>
+				<entry>
+					<key>
+						<value>1</value>
+					</key>
+					<value>zkf1</value>
+				</entry>
+				<entry>
+					<key>
+						<value>2</value>
+					</key>
+					<value>zkf2</value>
+				</entry>
+				<entry>
+					<key>
+						<value>3</value>
+					</key>
+					<value>zkf3</value>
+				</entry>
+			</map>
+		</property>
+
+		<!-- Propertis类型的成员变量赋值 -->
+		<property name="p">
+			<props>
+				<prop key="1">value1</prop>
+				<prop key="2">value2</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="account" class="org.fancylab.hibiscidai.entity.Account">
+		<!-- 为成员变量进行构造方法注入 -->
+		<constructor-arg type="Integer">
+			<value>123456</value>
+		</constructor-arg>
+		<constructor-arg type="Integer">
+			<value>18</value>
+		</constructor-arg>
+		<!-- <constructor-arg> <value>123456</value> </constructor-arg> <constructor-arg> 
+			<value>18</value> </constructor-arg> -->
+	</bean>
+
+	<!-- 配置创建复杂对象 -->
+	<bean id="conn" class="org.fancylab.hibiscidai.factory.ConnectionFactory">
+	</bean>
+</beans>
